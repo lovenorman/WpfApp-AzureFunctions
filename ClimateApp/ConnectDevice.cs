@@ -10,7 +10,8 @@ using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using ClimateApp.Models;
 using Microsoft.Azure.Devices;
-using Shared.Models;
+using HttpDeviceResponse = ClimateApp.Models.HttpDeviceResponse;
+using HttpDeviceRequest = ClimateApp.Models.HttpDeviceRequest;
 
 namespace ClimateApp
 {
@@ -40,34 +41,8 @@ namespace ClimateApp
                     twin.Properties.Desired["interval"] = 10000;
                     await _registryManager.UpdateTwinAsync(twin.DeviceId, twin, twin.ETag);//ETag är som ett id för vilken spegling av objektet vi menar.Båda har dock samma id.
                 }
+                return new OkObjectResult(new HttpDeviceResponse("Device connected", device));
 
-
-
-                //if (body == null || body.DeviceId == null)
-                //    return new BadRequestObjectResult("DeviceId is required");
-
-                //var device = await _registryManager.GetDeviceAsync(body.DeviceId);//Försöker hämta device
-                //if(device != null)//Om Device finns
-                //{
-                //    return new ConflictObjectResult(new AddDeviceResponse
-                //    {
-                //        Message = "Device already exists",
-                //        Device = device,
-                //        DeviceTwin = await _registryManager.GetTwinAsync(device.Id)//device.Id är direkt från databas, 
-                //    });
-                //}
-
-                //device = await _registryManager.AddDeviceAsync(new Device(body.DeviceId));//skapar ny device med samma instans(återanvänder samma plats i minnet)
-                //var twin = await _registryManager.GetTwinAsync(device.Id);
-
-                //twin.Properties.Desired["sendIntervall"] = 10000;//Desired är en ny property som jag sätter här.
-                //await _registryManager.UpdateTwinAsync(twin.DeviceId, twin, twin.ETag);
-
-                //return new OkObjectResult(new AddDeviceResponse
-                //{
-                //    Device = device,
-                //    DeviceTwin = await _registryManager.GetTwinAsync(device.Id)//device.Id är direkt från databas, 
-                //});
             }
             catch (Exception exception)
             {
