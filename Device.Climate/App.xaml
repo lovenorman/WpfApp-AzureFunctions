@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Device.Climate"
              StartupUri="MainWindow.xaml">
+    
     <Application.Resources>
-        <!--<ResourceDictionary Source="Resources/Fonts.xaml"/>-->
+        <ResourceDictionary Source="Resources/Fonts.xaml"/>
         <ResourceDictionary Source="Resources/MainMenuResource.xaml"/>
     </Application.Resources>
 </Application> 
