@@ -5,6 +5,10 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClimateApp", "ClimateApp\ClimateApp.csproj", "{B2CCDF79-8E5B-46D1-ACAA-A5857ED9B9A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Device.Climate", "Device.Climate\Device.Climate.csproj", "{72EAFE00-5D36-44CC-AAD9-920521E1B1A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{1DC29CD5-EDC2-4E65-A664-413C29101EFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{B2CCDF79-8E5B-46D1-ACAA-A5857ED9B9A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2CCDF79-8E5B-46D1-ACAA-A5857ED9B9A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2CCDF79-8E5B-46D1-ACAA-A5857ED9B9A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72EAFE00-5D36-44CC-AAD9-920521E1B1A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72EAFE00-5D36-44CC-AAD9-920521E1B1A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72EAFE00-5D36-44CC-AAD9-920521E1B1A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72EAFE00-5D36-44CC-AAD9-920521E1B1A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DC29CD5-EDC2-4E65-A664-413C29101EFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DC29CD5-EDC2-4E65-A664-413C29101EFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DC29CD5-EDC2-4E65-A664-413C29101EFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DC29CD5-EDC2-4E65-A664-413C29101EFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
