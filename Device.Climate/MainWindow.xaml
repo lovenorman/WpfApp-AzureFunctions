@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Device.Climate"
         mc:Ignorable="d"
-        Title="ClimateAdmin" Height="450" Width="800">
-    <Grid>
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Title="ClimateAdmin" 
+        Height="720" 
+        Width="1080">
+    <Border MouseDown="TitleBar_MouseDown" MouseLeftButtonDown="TitleBar_LeftButtonMouseDown">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
 
-    </Grid>
+            <ContentControl Grid.Row="0" Content=""/>
+            <!--Main Menu-->
+        </Grid>
+    </Border>
 </Window>
