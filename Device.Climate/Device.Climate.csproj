@@ -10,11 +10,9 @@
   <ItemGroup>
     <Folder Include="Assets\Fonts\" />
     <Folder Include="Assets\Images\" />
-    <Folder Include="Components\" />
     <Folder Include="MVVM\Models\" />
     <Folder Include="MVVM\ViewModels\" />
     <Folder Include="MVVM\Views\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
 
 </Project>

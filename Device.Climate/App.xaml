@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:Device.Climate"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <!--<ResourceDictionary Source="Resources/Fonts.xaml"/>-->
+        <ResourceDictionary Source="Resources/MainMenuResource.xaml"/>
     </Application.Resources>
-</Application>
+</Application> 

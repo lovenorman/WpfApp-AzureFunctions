@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="menuBar" TargetType="Border">
+        <Setter Property="Background" Value="DarkSlateGray"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="CornerRadius" Value="12"/>
+        <Setter Property="Opacity" Value="0.85"/>
+    </Style>
+
+    <Style x:Key="menuButton" TargetType="RadioButton">
+
+    </Style>
+
+</ResourceDictionary>
