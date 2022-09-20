@@ -2,6 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Device.Climate"
+             xmlns:viewModel="clr-namespace:Device.Climate.MVVM.ViewModels"
+             xmlns:views="clr-namespace:Device.Climate.MVVM.Views"
              StartupUri="MainWindow.xaml">
     
     <Application.Resources>
@@ -9,7 +11,13 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/FontsResources.xaml" />
                 <ResourceDictionary Source="Resources/MainMenuResource.xaml" />
+                <ResourceDictionary Source="Resources/BordersResources.xaml" />
+                <ResourceDictionary Source="Resources/ButtonsResources.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:KitchenViewModel}">
+                <views:KitchenView />
+            </DataTemplate>
         </ResourceDictionary>
         
     </Application.Resources>

@@ -9,11 +9,15 @@
 
   <ItemGroup>
     <None Remove="Assets\Images\bedroom.jpg" />
+    <None Remove="Assets\Images\kitchen.jpg" />
     <None Remove="Assets\Images\livingroom.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Assets\Images\bedroom.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\kitchen.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Images\livingroom.jpg">

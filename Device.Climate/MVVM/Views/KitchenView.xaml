@@ -6,11 +6,21 @@
              xmlns:local="clr-namespace:Device.Climate.MVVM.Views"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1080">
-    <Border x:Name="kitchen">
+    
+    <Border x:Name="kitchen" Style="{StaticResource pageBorder}">
         <Border CornerRadius="10">
             <Border.Background>
                 <ImageBrush Stretch="Fill"  Opacity="0.6" ImageSource="/Assets/Images/kitchen.jpg"/>
             </Border.Background>
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Button Grid.Row="0" x:Name="btnClose" Click="btnClose_Click" Style="{StaticResource closeButton}"/>
+            </Grid>
         </Border>
     </Border>
 </UserControl>

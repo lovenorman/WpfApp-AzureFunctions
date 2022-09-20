@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Device.Climate" 
-        xmlns:components="clr-namespace:Device.Climate.Components"
+        xmlns:components="clr-namespace:Device.Climate.Components" xmlns:viewmodels="clr-namespace:Device.Climate.MVVM.ViewModels"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
@@ -13,16 +13,20 @@
         Title="ClimateAdmin" 
         Height="720" 
         Width="1080">
+
+    <Window.DataContext>
+        <viewmodels:MainViewModel />
+    </Window.DataContext>
+    
     <Border MouseDown="TitleBar_MouseDown" MouseLeftButtonDown="TitleBar_LeftButtonMouseDown">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-
-            <ContentControl Grid.Row="0" Content=""/>
-            <components:MainMenuComponent Grid.Row="1" Margin="0 0 0 30"/>
-
+            
+            <ContentControl Grid.Row="0" Content="{Binding CurrentView}"/>
+            <components:MainMenuComponent Grid.Row="1" Margin="0 -140 0 0"/>
         </Grid>
     </Border>
 </Window>
