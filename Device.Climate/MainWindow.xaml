@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Device.Climate"
+        xmlns:local="clr-namespace:Device.Climate" 
+        xmlns:components="clr-namespace:Device.Climate.Components"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
@@ -20,7 +21,8 @@
             </Grid.RowDefinitions>
 
             <ContentControl Grid.Row="0" Content=""/>
-            <!--Main Menu-->
+            <components:MainMenuComponent Grid.Row="1" Margin="0 0 0 30"/>
+
         </Grid>
     </Border>
 </Window>

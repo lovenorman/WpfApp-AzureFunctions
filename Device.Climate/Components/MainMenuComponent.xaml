@@ -9,9 +9,9 @@
     
     <Border Style="{StaticResource menuBar}">
         <StackPanel Orientation="Horizontal">
-            <RadioButton Style="{StaticResource menuButton}" IsChecked="True" />
-            <RadioButton Style="{StaticResource menuButton}" />
-            <RadioButton Style="{StaticResource menuButton}"/>
+            <RadioButton Style="{StaticResource menuButton}" Content="&#xe51a;" IsChecked="True" />
+            <RadioButton Style="{StaticResource menuButton}" Content="&#xf236;"/>
+            <RadioButton Style="{StaticResource menuButton}" Content="&#xf4b8;"/>
         </StackPanel>
     </Border>
 </UserControl>

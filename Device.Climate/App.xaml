@@ -5,7 +5,12 @@
              StartupUri="MainWindow.xaml">
     
     <Application.Resources>
-        <ResourceDictionary Source="Resources/Fonts.xaml"/>
-        <ResourceDictionary Source="Resources/MainMenuResource.xaml"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/FontsResources.xaml" />
+                <ResourceDictionary Source="Resources/MainMenuResource.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
     </Application.Resources>
 </Application> 
