@@ -9,7 +9,7 @@
     <Border x:Name="kitchen">
         <Border CornerRadius="10">
             <Border.Background>
-                <ImageBrush Opacity="0.6" ImageSource="/Assets/Images/kitchen.jpg"/>
+                <ImageBrush Stretch="Fill"  Opacity="0.6" ImageSource="/Assets/Images/kitchen.jpg"/>
             </Border.Background>
         </Border>
     </Border>
