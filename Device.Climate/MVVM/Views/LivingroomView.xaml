@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Device.Climate.MVVM.Views"
+             xmlns:local="clr-namespace:Device.Climate.MVVM.Views" xmlns:components="clr-namespace:Device.Climate.Components"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1080">
 
-    <Border x:Name="kitchen" Style="{StaticResource pageBorder}">
+    <Border x:Name="livingroom" Style="{StaticResource pageBorder}">
         <Border CornerRadius="10">
             <Border.Background>
                 <ImageBrush Stretch="Fill"  Opacity="0.6" ImageSource="/Assets/Images/livingroom.jpg"/>
@@ -18,6 +18,42 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+
+                <Grid Grid.Row="1" Margin="60 10 60 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                        <TextBlock Text="Kitchen" Foreground="White" FontSize="36" FontWeight="Bold" />
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Foreground="White" FontSize="22">
+                                <Run Text="{Binding Temperature}" FontSize="32"/>
+                                <Run Text="{Binding TemperatureScale}" FontSize="20"/>
+                            </TextBlock>
+                            <TextBlock Margin="40 0 0 0" Foreground="White">
+                                <Run Text="{Binding Humidity}" FontSize="32"/>
+                                <Run Text="{Binding HumidityScale}" FontSize="20" />
+                            </TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <Grid Grid.Column="1" Margin="40 0 0 0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+
+                        <components:TileComponent IconActive="&#xf0eb;" IconInActive="" Grid.Row="1" Grid.Column="0" Loaded="TileComponent_Loaded" />
+                        <components:TileComponent IconActive="&#xf863;" IconInActive="" Grid.Row="1" Grid.Column="1" />
+                    </Grid>
+                </Grid>
             </Grid>
 
         </Border>

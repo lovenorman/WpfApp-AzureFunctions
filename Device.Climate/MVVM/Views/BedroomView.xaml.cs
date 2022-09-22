@@ -24,5 +24,15 @@ namespace Device.Climate.MVVM.Views
         {
             InitializeComponent();
         }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TileComponent_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

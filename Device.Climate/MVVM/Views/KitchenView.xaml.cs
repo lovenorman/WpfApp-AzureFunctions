@@ -29,5 +29,10 @@ namespace Device.Climate.MVVM.Views
         {
 
         }
+
+        private void TileComponent_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
