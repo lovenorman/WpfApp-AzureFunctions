@@ -11,8 +11,9 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/FontsDictionary.xaml" />
                 <ResourceDictionary Source="Resources/MainMenuDictionary.xaml" />
-                <ResourceDictionary Source="Resources/BordersResources.xaml" />
-                <ResourceDictionary Source="Resources/ButtonsResources.xaml" />
+                <ResourceDictionary Source="Resources/TileDictionary.xaml" />
+                <ResourceDictionary Source="Resources/BordersDictionary.xaml" />
+                <ResourceDictionary Source="Resources/ButtonsDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:KitchenViewModel}">
