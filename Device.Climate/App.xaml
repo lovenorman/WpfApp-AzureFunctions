@@ -21,6 +21,9 @@
             <DataTemplate DataType="{x:Type viewModel:BedroomViewModel}">
                 <views:BedroomView />
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:LivingroomViewModel}">
+                <views:LivingroomView />
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application> 
