@@ -9,9 +9,10 @@
     
     <Border Style="{StaticResource menuBar}">
         <StackPanel Orientation="Horizontal">
-            <RadioButton Style="{StaticResource menuButton}" Content="&#xe51a;" IsChecked="True" />
-            <RadioButton Style="{StaticResource menuButton}" Content="&#xf236;"/>
+            <RadioButton Command="{Binding KitchenViewCommand}" Style="{StaticResource menuButton}" Content="&#xe51a;" IsChecked="True" />
+            <RadioButton Command="{Binding BedroomViewCommand}" Style="{StaticResource menuButton}" Content="&#xf236;"/>
             <RadioButton Style="{StaticResource menuButton}" Content="&#xf4b8;"/>
+            <RadioButton x:Name="btnClose" Click="btnClose_Click" Style="{StaticResource menuButton}" Content="&#xf011;"  />
         </StackPanel>
     </Border>
 </UserControl>

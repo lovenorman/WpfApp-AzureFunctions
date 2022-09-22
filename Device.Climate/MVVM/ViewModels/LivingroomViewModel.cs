@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Device.Climate.MVVM.ViewModels
 {
-    internal class KitchenViewModel
+    internal class LivingroomViewModel
     {
-        public string Title { get; set; } = "Kitchen";
-        public string Temperature { get; set; } = "23";
+        public string Title { get; set; } = "Living room";
+        public string Temperature { get; set; } = "24";
         public string TemperatureScale { get; set; } = "°C";
-        public string Humidity { get; set; } = "33";
+        public string Humidity { get; set; } = "31";
         public string HumidityScale { get; set; } = "%";
     }
 }

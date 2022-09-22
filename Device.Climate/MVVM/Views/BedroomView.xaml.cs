@@ -13,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Device.Climate.Components
+namespace Device.Climate.MVVM.Views
 {
     /// <summary>
-    /// Interaction logic for MainMenuComponent.xaml
+    /// Interaction logic for BedroomView.xaml
     /// </summary>
-    public partial class MainMenuComponent : UserControl
+    public partial class BedroomView : UserControl
     {
-        public MainMenuComponent()
+        public BedroomView()
         {
             InitializeComponent();
-        }
-
-        private void btnClose_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
         }
     }
 }

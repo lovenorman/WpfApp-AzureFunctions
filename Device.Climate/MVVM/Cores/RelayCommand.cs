@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Device.Climate.MVVM
+namespace Device.Climate.MVVM.Cores
 {
     internal class RelayCommand : ICommand
-        
+
     {
         private Action<object> _execute;
         private Func<object, bool> _canExecute;
@@ -19,8 +19,8 @@ namespace Device.Climate.MVVM
             _canExecute = canExecute;
         }
 
-        public event EventHandler? CanExecuteChanged 
-        { 
+        public event EventHandler? CanExecuteChanged
+        {
             add { CommandManager.RequerySuggested -= value; }
             remove { CommandManager.RequerySuggested += value; }
         }
@@ -32,9 +32,9 @@ namespace Device.Climate.MVVM
 
         public void Execute(object? parameter)
         {
-            _execute(parameter);
+            _execute(parameter ?? null!);
         }
 
-        
+
     }
 }

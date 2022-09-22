@@ -9,8 +9,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Resources/FontsResources.xaml" />
-                <ResourceDictionary Source="Resources/MainMenuResource.xaml" />
+                <ResourceDictionary Source="Resources/FontsDictionary.xaml" />
+                <ResourceDictionary Source="Resources/MainMenuDictionary.xaml" />
                 <ResourceDictionary Source="Resources/BordersResources.xaml" />
                 <ResourceDictionary Source="Resources/ButtonsResources.xaml" />
             </ResourceDictionary.MergedDictionaries>
@@ -18,7 +18,9 @@
             <DataTemplate DataType="{x:Type viewModel:KitchenViewModel}">
                 <views:KitchenView />
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:BedroomViewModel}">
+                <views:BedroomView />
+            </DataTemplate>
         </ResourceDictionary>
-        
     </Application.Resources>
 </Application> 
