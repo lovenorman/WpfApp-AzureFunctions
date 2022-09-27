@@ -26,7 +26,7 @@
                     </Grid.ColumnDefinitions>
 
                     <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                        <TextBlock Text="Bedroom" Foreground="White" FontSize="36" FontWeight="Bold" />
+                        <TextBlock Text="{Binding Title}" Foreground="White" FontSize="36" FontWeight="Bold" />
 
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Foreground="White" FontSize="22">
@@ -50,8 +50,11 @@
                             <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
 
-                        <components:TileComponent IconActive="&#xf0eb;" IconInActive="" Grid.Row="1" Grid.Column="0" Loaded="TileComponent_Loaded" />
-                        <components:TileComponent IconActive="&#xf863;" IconInActive="" Grid.Row="1" Grid.Column="1" />
+                        <StackPanel Orientation="Horizontal">
+                            <components:TileComponent IconActive="&#xf0eb;" IconInActive="" Grid.Row="1" Grid.Column="0" StateActive="On" StateInActive="Off" Loaded="TileComponent_Loaded" />
+                            <components:TileComponent IconActive="&#xf863;" IconInActive="" Grid.Row="1" Grid.Column="1" StateActive="On" StateInActive="Off" />
+                        </StackPanel>
+                        
                     </Grid>
                 </Grid>
             </Grid>

@@ -56,5 +56,23 @@ namespace Device.Climate.Components
             get { return (string)GetValue(IconInActiveProperty); }
             set { SetValue(IconInActiveProperty, value); }
         }
+
+        public static readonly DependencyProperty StateActiveProperty =
+            DependencyProperty.Register("StateActive", typeof(string), typeof(TileComponent));
+        public string StateActive
+        {
+            get { return (string)GetValue(StateActiveProperty); }
+            set { SetValue(StateActiveProperty, value); }
+        }
+
+        public static readonly DependencyProperty StateInActiveProperty =
+            DependencyProperty.Register("StateInActive", typeof(string), typeof(TileComponent));
+        public string StateInActive
+        {
+            get { return (string)GetValue(StateInActiveProperty); }
+            set { SetValue(StateInActiveProperty, value); }
+        }
+
+
     }
 }

@@ -22,7 +22,7 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Grid.Column="0" Style="{StaticResource tilePanelState}"  />
-                <CheckBox x:Name="toggle" Grid.Column="1" Style="{StaticResource tilePanelToggleButton}"  HorizontalAlignment="Right" VerticalAlignment="Center" />
+                <CheckBox x:Name="toggleButton" Grid.Column="1" Style="{StaticResource tilePanelToggleButton}"  HorizontalAlignment="Right" VerticalAlignment="Center" />
             </Grid>
 
             <StackPanel Grid.Row="1">
