@@ -51,8 +51,8 @@
                         </Grid.RowDefinitions>
 
                         <StackPanel Orientation="Horizontal">
-                            <components:TileComponent IconActive="&#xf0eb;" IconInActive="" Grid.Row="1" Grid.Column="0" StateActive="On" StateInActive="Off" Loaded="TileComponent_Loaded" />
-                            <components:TileComponent IconActive="&#xf863;" IconInActive="" Grid.Row="1" Grid.Column="1" StateActive="On" StateInActive="Off" />
+                            <components:TileComponent IconActive="&#xf0eb;" IconInActive="&#xf0eb;" Grid.Row="1" Grid.Column="0" StateActive="On" StateInActive="Off" Loaded="TileComponent_Loaded" />
+                            <components:TileComponent IconActive="&#xf863;" IconInActive="&#xf863;" Grid.Row="1" Grid.Column="1" StateActive="On" StateInActive="Off" />
                         </StackPanel>
                         
                     </Grid>

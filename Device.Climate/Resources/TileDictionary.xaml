@@ -95,9 +95,9 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <Style x:Key="tileIcon" TargetType="TextBlock">
-        
+
         <Setter Property="FontSize" Value="52" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="VerticalAlignment" Value="Center" />
@@ -113,5 +113,5 @@
             </DataTrigger>
         </Style.Triggers>
     </Style>
-
+    
 </ResourceDictionary>
