@@ -50,8 +50,8 @@
                             <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
 
-                        <components:TileComponent IconActive="&#xf0eb;" IconInActive="" Grid.Row="1" Grid.Column="0" Loaded="TileComponent_Loaded" />
-                        <components:TileComponent IconActive="&#xf863;" IconInActive="" Grid.Row="1" Grid.Column="1" />
+                        <components:TileComponent  IconActive="&#xf0eb;" IconInActive="" Grid.Row="1" Grid.Column="0" Loaded="TileComponent_Loaded" />
+                        <components:TileComponent  IconActive="&#xf863;" IconInActive="" Grid.Row="1" Grid.Column="1" />
                     </Grid>
                 </Grid>
 

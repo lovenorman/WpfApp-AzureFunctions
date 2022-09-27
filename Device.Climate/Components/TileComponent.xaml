@@ -8,7 +8,7 @@
              x:Name="tile"
              d:DesignHeight="450" d:DesignWidth="800">
     
-    <Border Style="{StaticResource tile}">
+    <Border Style="{StaticResource tilePanel}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
@@ -21,8 +21,8 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Column="0" Style="{StaticResource tileToggleText}"  />
-                <CheckBox x:Name="toggle" Grid.Column="1" Style="{StaticResource tileToggleButton}"  HorizontalAlignment="Right" VerticalAlignment="Center" />
+                <TextBlock Grid.Column="0" Style="{StaticResource tilePanelState}"  />
+                <CheckBox x:Name="toggle" Grid.Column="1" Style="{StaticResource tilePanelToggleButton}"  HorizontalAlignment="Right" VerticalAlignment="Center" />
             </Grid>
 
             <StackPanel Grid.Row="1">
