@@ -15,5 +15,6 @@ namespace Device.Climate.MVVM.ViewModels
         public string HumidityTitle { get; set; } = "Humidity:";
         public string Humidity { get; set; } = "33";
         public string HumidityScale { get; set; } = "%";
+
     }
 }
