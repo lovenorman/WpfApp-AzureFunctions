@@ -22,7 +22,7 @@ namespace ClimateApp
 
         [FunctionName("ConnectDevice")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "devices/connect")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "devices/connectdevices")] HttpRequest req,
             ILogger log)
         {
             try
