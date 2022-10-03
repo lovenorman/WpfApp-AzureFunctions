@@ -6,7 +6,7 @@
         <Setter Property="HorizontalAlignment" Value="Right" />
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="FontFamily" Value="{StaticResource FontAwesome-Solid}"/>
+        <Setter Property="FontFamily" Value="{StaticResource Fontawesome-Regular}"/>
         <Setter Property="FontSize" Value="28"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Template">

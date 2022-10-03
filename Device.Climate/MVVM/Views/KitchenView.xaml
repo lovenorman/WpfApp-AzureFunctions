@@ -30,6 +30,7 @@
 
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Foreground="White" FontSize="22">
+                                <Run Text="{Binding TemperaturTitle}" FontSize="32"/>
                                 <Run Text="{Binding Temperature}" FontSize="32"/>
                                 <Run Text="{Binding TemperatureScale}" FontSize="20"/>
                             </TextBlock>
@@ -51,15 +52,14 @@
                         </Grid.RowDefinitions>
 
                         <StackPanel Orientation="Horizontal">
-                            <components:TileComponent IconActive="&#xf0eb;" IconInActive="" Grid.Row="1" Grid.Column="0" StateActive="On" StateInActive="Off"  Loaded="TileComponent_Loaded" />
-                            <components:TileComponent  IconActive="&#xf863;" IconInActive="" Grid.Row="1" Grid.Column="1" StateActive="On" StateInActive="Off"/>
+                            <components:TileComponent Title="Light" IconActive="&#xf672;" IconInActive="&#xf0eb;" Grid.Row="1" Grid.Column="0"  />
+                            <components:TileComponent Title="Fan" IconActive="&#xf863;" IconInActive="&#xf863;" Grid.Row="1" Grid.Column="1"  />
+                                <!--StateActive="On" StateInActive="Off"-->
+                            <!--StateActive="On" StateInActive="Off"  Loaded="TileComponent_Loaded"-->
                         </StackPanel>
                     </Grid>
                 </Grid>
-
             </Grid>
-            
-
         </Border>
     </Border>
 </UserControl>

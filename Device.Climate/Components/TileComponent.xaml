@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:Device.Climate.Components"
              mc:Ignorable="d"
              x:Name="tile"
-             d:DesignHeight="450" d:DesignWidth="800">
-    
+             >
+
     <Border Style="{StaticResource tilePanel}">
         <Grid>
             <Grid.RowDefinitions>

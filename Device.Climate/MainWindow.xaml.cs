@@ -23,6 +23,7 @@ namespace Device.Climate
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         private void TitleBar_MouseDown(object sender, MouseButtonEventArgs e)

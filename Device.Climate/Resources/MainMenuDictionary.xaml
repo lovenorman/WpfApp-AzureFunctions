@@ -16,7 +16,7 @@
         <Setter Property="Margin" Value="20 2 20 2"/>
         <Setter Property="Padding" Value="15 12"/>
         <Setter Property="FontSize" Value="22"/>
-        <Setter Property="FontFamily" Value="{StaticResource FontAwesome-Solid}"/>
+        <Setter Property="FontFamily" Value="{StaticResource Fontawesome-Regular}"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Template">
             <Setter.Value>

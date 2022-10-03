@@ -20,13 +20,15 @@
         <Setter Property="Margin" Value="0 0 50 0" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="Text" Value="{Binding ElementName=tile,Path=StateInActive}" />
+        <!--<Setter Property="Text" Value="{Binding ElementName=tile,Path=StateInActive}" />-->
         <Style.Triggers>
             <DataTrigger Binding="{Binding ElementName=toggleButton,Path=IsChecked}" Value="True">
-                <Setter Property="Text" Value="{Binding ElementName=tile,Path=StateActive}" />
+                <Setter Property="Text" Value="On"/>
+                <!--<Setter Property="Text" Value="{Binding ElementName=tile,Path=StateActive}" />-->
             </DataTrigger>
             <DataTrigger Binding="{Binding ElementName=toggle,Path=IsChecked}" Value="False">
-                <Setter Property="Text" Value="{Binding ElementName=tile,Path=StateInActive}" />
+                <Setter Property="Text" Value="Off"/>
+                <!--<Setter Property="Text" Value="{Binding ElementName=tile,Path=StateInActive}" />-->
             </DataTrigger>
         </Style.Triggers>
     </Style>
@@ -97,7 +99,7 @@
     </Style>
 
     <Style x:Key="tileIcon" TargetType="TextBlock">
-
+        <Setter Property="FontFamily" Value="{StaticResource Fontawesome-Regular}"/>
         <Setter Property="FontSize" Value="52" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="VerticalAlignment" Value="Center" />
@@ -105,11 +107,9 @@
         <Style.Triggers>
             <DataTrigger Binding="{Binding ElementName=toggleButton,Path=IsChecked}" Value="True">
                 <Setter Property="Text" Value="{Binding ElementName=tile,Path=IconActive}" />
-                <Setter Property="FontFamily" Value="{StaticResource FontAwesome-Solid}" />
             </DataTrigger>
             <DataTrigger Binding="{Binding ElementName=toggleButton,Path=IsChecked}" Value="False">
                 <Setter Property="Text" Value="{Binding ElementName=tile,Path=IconInActive}" />
-                <Setter Property="FontFamily" Value="{StaticResource FontAwesome-Regular}" />
             </DataTrigger>
         </Style.Triggers>
     </Style>

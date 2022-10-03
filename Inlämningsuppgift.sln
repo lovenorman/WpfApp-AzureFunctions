@@ -5,9 +5,9 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClimateApp", "ClimateApp\ClimateApp.csproj", "{B2CCDF79-8E5B-46D1-ACAA-A5857ED9B9A5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Device.Climate", "Device.Climate\Device.Climate.csproj", "{72EAFE00-5D36-44CC-AAD9-920521E1B1A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service.ClimateAdmin", "Device.Climate\Service.ClimateAdmin.csproj", "{72EAFE00-5D36-44CC-AAD9-920521E1B1A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectingDevice", "ConnectingDevice\ConnectingDevice.csproj", "{59E3B960-FEA1-4C6C-B7C6-EAD30081E2C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectingDevice", "ConnectingDevice\ConnectingDevice.csproj", "{59E3B960-FEA1-4C6C-B7C6-EAD30081E2C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
