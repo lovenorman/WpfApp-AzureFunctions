@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service.ClimateAdmin", "Dev
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectingDevice", "ConnectingDevice\ConnectingDevice.csproj", "{59E3B960-FEA1-4C6C-B7C6-EAD30081E2C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WepApi", "WepApi\WepApi.csproj", "{90E1C069-ED34-451D-AF66-2C70E9A9EC82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{59E3B960-FEA1-4C6C-B7C6-EAD30081E2C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59E3B960-FEA1-4C6C-B7C6-EAD30081E2C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59E3B960-FEA1-4C6C-B7C6-EAD30081E2C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90E1C069-ED34-451D-AF66-2C70E9A9EC82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90E1C069-ED34-451D-AF66-2C70E9A9EC82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90E1C069-ED34-451D-AF66-2C70E9A9EC82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90E1C069-ED34-451D-AF66-2C70E9A9EC82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
