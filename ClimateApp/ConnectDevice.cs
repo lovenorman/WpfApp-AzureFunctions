@@ -21,11 +21,14 @@ namespace ClimateApp
             try
             {
                 using var registryManager = RegistryManager.CreateFromConnectionString(Environment.GetEnvironmentVariable("IotHub"));
-                var device = await registryManager.AddDeviceAsync(new Device(req.Query["deviceId"]));
+                var device = await registryManager.GetDeviceAsync(req.Query["deviceId"]);
+                //Om device == null, kör detta
+                device ??= await registryManager.AddDeviceAsync(new Device(req.Query["deviceId"]));
+                
+                return new OkObjectResult($"{Environment.GetEnvironmentVariable("IotHub").Split(";")[0]};DeviceId ={device.Id}; SharedAccessKey ={device.Authentication.SymmetricKey.PrimaryKey}");
             }
             catch (Exception ex)
             {
-
                 return new BadRequestObjectResult(ex.Message);
             }
           
