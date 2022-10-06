@@ -18,7 +18,7 @@ using Dapper;
 using System.Data;
 using System.Net.Http;
 using System.Net.Http.Json;
-
+using ConnectingDevice.Models;
 
 namespace ConnectingDevice
 {
@@ -27,10 +27,17 @@ namespace ConnectingDevice
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly string _connectUrl = "http://localhost:7274/api/devices/connect";//URL som fås från APIet (vilket jag inte har än)
+        private readonly string _connectUrl = "http://localhost:7225/api/devices/connect";//URL som fås från APIet (vilket jag inte har än)
         private readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\love_\\source\\repos\\Inlämningsuppgift\\ConnectingDevice\\Data\\device_DB.mdf;Integrated Security=True;Connect Timeout=30";
 
         private DeviceClient _deviceClient;
+        private DeviceInfo _deviceInfo;
+
+        private string _deviceId = "";
+        private bool _lightState = false;
+        private bool _lightPreviusState = false;
+        private bool _connected = false;
+        private int _interval = 1000;
 
         public MainWindow()
         {
