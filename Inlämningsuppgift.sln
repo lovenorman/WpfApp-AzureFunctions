@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectingDevice", "Connect
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WepApi", "WepApi\WepApi.csproj", "{90E1C069-ED34-451D-AF66-2C70E9A9EC82}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunctions", "AzureFunctions\AzureFunctions.csproj", "{6B99274A-0870-405A-BE94-3FAF368448E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{90E1C069-ED34-451D-AF66-2C70E9A9EC82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90E1C069-ED34-451D-AF66-2C70E9A9EC82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90E1C069-ED34-451D-AF66-2C70E9A9EC82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B99274A-0870-405A-BE94-3FAF368448E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B99274A-0870-405A-BE94-3FAF368448E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B99274A-0870-405A-BE94-3FAF368448E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B99274A-0870-405A-BE94-3FAF368448E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Device.Climate.MVVM.Cores
+namespace Service.ClimateAdmin.MVVM.Cores
 {
     internal class ObservableObject : INotifyPropertyChanged
     {

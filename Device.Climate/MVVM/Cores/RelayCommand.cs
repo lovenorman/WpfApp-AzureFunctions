@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Device.Climate.MVVM.Cores
+namespace Service.ClimateAdmin.MVVM.Cores
 {
     internal class RelayCommand : ICommand
 

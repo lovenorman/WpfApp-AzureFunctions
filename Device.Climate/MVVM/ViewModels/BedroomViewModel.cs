@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Device.Climate.MVVM.ViewModels
+namespace Service.ClimateAdmin.MVVM.ViewModels
 {
     internal class BedroomViewModel
     {

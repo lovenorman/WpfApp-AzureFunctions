@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Device.Climate.MVVM.Cores;
+using Service.ClimateAdmin.MVVM.Cores;
 
-namespace Device.Climate.MVVM.ViewModels
+namespace Service.ClimateAdmin.MVVM.ViewModels
 {
-    internal class MainViewModel : ObservableObject    
+    internal class MainViewModel : ObservableObject
     {
         public MainViewModel()
         {
@@ -22,9 +22,9 @@ namespace Device.Climate.MVVM.ViewModels
 
             CurrentView = KitchenViewModelProp;
         }
-        
+
         private object _currentView;
-        
+
         public RelayCommand KitchenViewCommand { get; set; }
         public KitchenViewModel KitchenViewModelProp { get; set; }
         public RelayCommand BedroomViewCommand { get; set; }

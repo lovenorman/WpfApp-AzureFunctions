@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Device.Climate.MVVM.Models
+namespace Service.ClimateAdmin.MVVM.Models
 {
     internal class DeviceItem
     {
