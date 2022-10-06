@@ -3,15 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClimateApp", "ClimateApp\ClimateApp.csproj", "{B2CCDF79-8E5B-46D1-ACAA-A5857ED9B9A5}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service.ClimateAdmin", "Device.Climate\Service.ClimateAdmin.csproj", "{72EAFE00-5D36-44CC-AAD9-920521E1B1A0}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectingDevice", "ConnectingDevice\ConnectingDevice.csproj", "{59E3B960-FEA1-4C6C-B7C6-EAD30081E2C5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WepApi", "WepApi\WepApi.csproj", "{90E1C069-ED34-451D-AF66-2C70E9A9EC82}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunctions", "AzureFunctions\AzureFunctions.csproj", "{6B99274A-0870-405A-BE94-3FAF368448E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.ClimateApp", "Service.ClimateApp\Service.ClimateApp.csproj", "{BB715481-8615-40F1-91EC-8547210C68E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,26 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B2CCDF79-8E5B-46D1-ACAA-A5857ED9B9A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B2CCDF79-8E5B-46D1-ACAA-A5857ED9B9A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B2CCDF79-8E5B-46D1-ACAA-A5857ED9B9A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B2CCDF79-8E5B-46D1-ACAA-A5857ED9B9A5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{72EAFE00-5D36-44CC-AAD9-920521E1B1A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{72EAFE00-5D36-44CC-AAD9-920521E1B1A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{72EAFE00-5D36-44CC-AAD9-920521E1B1A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{72EAFE00-5D36-44CC-AAD9-920521E1B1A0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{59E3B960-FEA1-4C6C-B7C6-EAD30081E2C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{59E3B960-FEA1-4C6C-B7C6-EAD30081E2C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59E3B960-FEA1-4C6C-B7C6-EAD30081E2C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59E3B960-FEA1-4C6C-B7C6-EAD30081E2C5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{90E1C069-ED34-451D-AF66-2C70E9A9EC82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{90E1C069-ED34-451D-AF66-2C70E9A9EC82}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{90E1C069-ED34-451D-AF66-2C70E9A9EC82}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{90E1C069-ED34-451D-AF66-2C70E9A9EC82}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6B99274A-0870-405A-BE94-3FAF368448E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6B99274A-0870-405A-BE94-3FAF368448E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B99274A-0870-405A-BE94-3FAF368448E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B99274A-0870-405A-BE94-3FAF368448E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB715481-8615-40F1-91EC-8547210C68E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB715481-8615-40F1-91EC-8547210C68E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB715481-8615-40F1-91EC-8547210C68E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB715481-8615-40F1-91EC-8547210C68E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

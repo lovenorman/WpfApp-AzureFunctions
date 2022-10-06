@@ -1,0 +1,20 @@
+﻿<Application x:Class="Service.ClimateApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Service.ClimateApp" 
+             xmlns:views="clr-namespace:Service.ClimateApp.MVVM.Views"
+             xmlns:viewModels="clr-namespace:Service.ClimateApp.MVVM.ViewModels"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/FontsDictionary.xaml"/>
+                <ResourceDictionary Source="Resources/ButtonsDictionary.xaml"/>
+                <ResourceDictionary Source="Resources/MainMenuDictionary.xaml"/>
+                <ResourceDictionary Source="Resources/BordersDictionary.xaml"/>
+                <ResourceDictionary Source="Resources/TileDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+        
+</Application>

@@ -22,6 +22,7 @@ using ConnectingDevice.Models;
 using System.Runtime.CompilerServices;
 using Newtonsoft.Json;
 using Microsoft.Azure.Devices.Shared;
+using System.Diagnostics;
 
 namespace ConnectingDevice
 {
@@ -51,25 +52,57 @@ namespace ConnectingDevice
 
         public async Task SetupAsync()
         {
-            using IDbConnection conn = new SqlConnection(_connectionString);
+            tbStateMessage.Text = "Initializing device.Please wait...";
+
+            using IDbConnection conn = new SqlConnection(_connectionString);//Ändra till att söka i CosmosDB?
             var deviceId = await conn.QueryFirstOrDefaultAsync<string>("SELECT DeviceId FROM DeviceInfo");
-            if (string.IsNullOrEmpty(deviceId))//Om id är null, skapa nytt Guid, gör om till string
+            if (string.IsNullOrEmpty(deviceId))
             {
-                deviceId = Guid.NewGuid().ToString();
-                await conn.ExecuteAsync("INSERT INTO DeviceInfo (DeviceId) VALUES (@DeviceId)", new { DeviceId = deviceId });
+                tbStateMessage.Text = "Generating new DeviceId";//Genererar ett nytt deviceId.
+                _deviceId = Guid.NewGuid().ToString();
+                await conn.ExecuteAsync("INSERT INTO DeviceInfo(DeviceId,DeviceName,DeviceType,Location,Owner) Values (@DeviceId, @DeviceName, @DeviceType, @Location, @Owner)", new { DeviceId = _deviceId, DeviceName = "WPF Device", DeviceType = "light", Location = "kitchen", Owner = "Love Norman" });//Insert values på första lediga plats i tabellen DeviceInfo
             }
 
-            var device_ConnectionString = await conn.QueryFirstOrDefaultAsync<string>("SELECT ConnectionString FROM DeviceInfo WHERE DeviceId = @DeviceId", new {DeviceId = deviceId});
-            if (string.IsNullOrEmpty(device_ConnectionString))//Om null, behöver vi göra en förfrågan till APIet
+            var device_ConnectionString = await conn.QueryFirstOrDefaultAsync<string>("SELECT ConnectionString FROM DeviceInfo WHERE DeviceId = @DeviceId", new {DeviceId = _deviceId});
+            
+            if (string.IsNullOrEmpty(device_ConnectionString))
             {
+                tbStateMessage.Text = "Intializing connectionstring.Please wait...";
+
                 using var http = new HttpClient();
-                var result = await http.PostAsJsonAsync(_connectUrl, new { deviceId });
-                device_ConnectionString = await result.Content.ReadAsStringAsync();
-                await conn.ExecuteAsync("UPDATE DeviceInfo SET ConnectionString = @ConnectionsString WHERE DeviceId = @DeviceId", new { DeviceId = deviceId, ConnectionString = device_ConnectionString });
+
+                try
+                {
+                    await Task.Delay(3000);
+                    var result = await http.PostAsJsonAsync(_connectUrl, new { deviceId = _deviceId });//Behöver jag sätta deviceId här? (deviceId är property i twin)
+                    device_ConnectionString = await result.Content.ReadAsStringAsync();
+                    await conn.ExecuteAsync("UPDATE DeviceInfo SET ConnectionString = @ConnectionsString WHERE DeviceId = @DeviceId", new { DeviceId = deviceId, ConnectionString = device_ConnectionString });
+                }
+                catch (Exception ex)
+                {
+
+                    Debug.WriteLine(ex.Message);
+                }
+                
             }
             
             _deviceClient = DeviceClient.CreateFromConnectionString(device_ConnectionString);//Vi skapar en deviceClient med connectionstringen som vi fått från DB el APIet
-            
+
+            tbStateMessage.Text = "Updating Twin Properties.Please wait...";
+
+            _deviceInfo = await conn.QueryFirstOrDefaultAsync<DeviceInfo>("SELECT * FROM DeviceInfo WHERE DeviceId = @DeviceId", new { DeviceId = _deviceId });//Letar efter första Devicen som matchar och returnar en DeviceInfo
+
+            var twinCollection = new TwinCollection();      
+            twinCollection["deviceName"] = _deviceInfo.DeviceName; //Sätter twinnens propertys till de värden som hämtats fråm DB
+            twinCollection["deviceType"] = _deviceInfo.DeviceType;
+            twinCollection["location"] = _deviceInfo.Location;
+            twinCollection["owner"] = _deviceInfo.Owner;
+            twinCollection["lightState"] = _lightState;
+
+            await _deviceClient.UpdateReportedPropertiesAsync(twinCollection);//Uppdaterar twinnen 
+
+            _connected = true;//så att vi kommer in i rätt if sats nedan
+            tbStateMessage.Text = "Device connected";
         }
 
         private async Task SendMessageAsync()
@@ -85,10 +118,10 @@ namespace ConnectingDevice
                         //d2c
                         var json = JsonConvert.SerializeObject(new {lightState = _lightState});
                         var message = new Message(Encoding.UTF8.GetBytes(json));
-                            message.Properties.Add("deviceName", deviceInfo.DeviceName);
-                            message.Properties.Add("deviceType", deviceInfo.DeviceType);
-                            message.Properties.Add("location", deviceInfo.Location);
-                            message.Properties.Add("owner", deviceInfo.Owner);
+                            message.Properties.Add("deviceName", _deviceInfo.DeviceName);
+                            message.Properties.Add("deviceType", _deviceInfo.DeviceType);
+                            message.Properties.Add("location", _deviceInfo.Location);
+                            message.Properties.Add("owner", _deviceInfo.Owner);
 
                         await _deviceClient.SendEventAsync(message);
                         tbStateMessage.Text = $"Message sent at {DateTime.Now}.";
