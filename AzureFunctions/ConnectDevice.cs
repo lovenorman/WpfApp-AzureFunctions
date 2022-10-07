@@ -26,13 +26,15 @@ namespace AzureFunctions
             try
             {
                 var body = JsonConvert.DeserializeObject<DeviceRequest>(await new StreamReader(req.Body).ReadToEndAsync());
-                var device = await _registryManager.AddDeviceAsync(new Device(body.DeviceId));
+                var device = await _registryManager.GetDeviceAsync(body.DeviceId);
+                if(device == null)
+                    device = await _registryManager.AddDeviceAsync(new Device(body.DeviceId));
 
                 var connectionstring = $"{iotHub.Split(";")[0]};DeviceId={device.Id};SharedAccessKey={device.Authentication.SymmetricKey.PrimaryKey}";
 
                 return new OkObjectResult(connectionstring);
             }
-            catch
+            catch (Exception ex)
             {
 
                 return new BadRequestResult();

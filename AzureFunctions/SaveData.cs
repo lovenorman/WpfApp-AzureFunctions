@@ -15,7 +15,7 @@ namespace AzureFunctions
         //private static HttpClient client = new HttpClient();
         
         [FunctionName("SaveData")]
-        public void Run([IoTHubTrigger("messages/events", Connection = "IotHubEndpoint")]EventData message,
+        public void Run([IoTHubTrigger("messages/events", Connection = "IotHubEndPoint")]EventData message,
             [CosmosDB(databaseName: "NET", collectionName: "Data", CreateIfNotExists = true, ConnectionStringSetting = "CosmosDB")] out dynamic output,
             ILogger log)
         {

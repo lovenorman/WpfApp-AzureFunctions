@@ -55,8 +55,8 @@ namespace ConnectingDevice
             tbStateMessage.Text = "Initializing device.Please wait...";
 
             using IDbConnection conn = new SqlConnection(_connectionString);//Ändra till att söka i CosmosDB?
-            var deviceId = await conn.QueryFirstOrDefaultAsync<string>("SELECT DeviceId FROM DeviceInfo");
-            if (string.IsNullOrEmpty(deviceId))
+            _deviceId = await conn.QueryFirstOrDefaultAsync<string>("SELECT DeviceId FROM DeviceInfo");
+            if (string.IsNullOrEmpty(_deviceId))
             {
                 tbStateMessage.Text = "Generating new DeviceId";//Genererar ett nytt deviceId.
                 _deviceId = Guid.NewGuid().ToString();
@@ -76,7 +76,7 @@ namespace ConnectingDevice
                     await Task.Delay(3000);
                     var result = await http.PostAsJsonAsync(_connectUrl, new { deviceId = _deviceId });//Behöver jag sätta deviceId här? (deviceId är property i twin)
                     device_ConnectionString = await result.Content.ReadAsStringAsync();
-                    await conn.ExecuteAsync("UPDATE DeviceInfo SET ConnectionString = @ConnectionsString WHERE DeviceId = @DeviceId", new { DeviceId = deviceId, ConnectionString = device_ConnectionString });
+                    await conn.ExecuteAsync("UPDATE DeviceInfo SET ConnectionString = @ConnectionsString WHERE DeviceId = @DeviceId", new { DeviceId = _deviceId, ConnectionString = device_ConnectionString });
                 }
                 catch (Exception ex)
                 {
