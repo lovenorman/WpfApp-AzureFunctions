@@ -112,4 +112,19 @@
             </DataTrigger>
         </Style.Triggers>
     </Style>
+
+    <Style x:Key="tilePanelDeviceName" TargetType="TextBlock">
+        <Setter Property="Text" Value="{Binding ElementName=tile,Path=DeviceName}" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="tilePanelDeviceType" TargetType="TextBlock">
+        <Setter Property="Text" Value="{Binding ElementName=tile,Path=DeviceType}" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
 </ResourceDictionary>
