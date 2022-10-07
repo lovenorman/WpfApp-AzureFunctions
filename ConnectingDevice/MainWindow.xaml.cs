@@ -73,10 +73,10 @@ namespace ConnectingDevice
 
                 try
                 {
-                    await Task.Delay(3000);
+                    await Task.Delay(5000);
                     var result = await http.PostAsJsonAsync(_connectUrl, new { deviceId = _deviceId });//Behöver jag sätta deviceId här? (deviceId är property i twin)
                     device_ConnectionString = await result.Content.ReadAsStringAsync();
-                    await conn.ExecuteAsync("UPDATE DeviceInfo SET ConnectionString = @ConnectionsString WHERE DeviceId = @DeviceId", new { DeviceId = _deviceId, ConnectionString = device_ConnectionString });
+                    await conn.ExecuteAsync("UPDATE DeviceInfo SET ConnectionString = @ConnectionString WHERE DeviceId = @DeviceId", new { DeviceId = _deviceId, ConnectionString = device_ConnectionString });
                 }
                 catch (Exception ex)
                 {
