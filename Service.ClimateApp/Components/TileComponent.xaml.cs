@@ -33,6 +33,20 @@ namespace Service.ClimateApp.Components
             set { SetValue(TitleProperty, value); }
         }
 
+        public static readonly DependencyProperty DeviceNameProperty = DependencyProperty.Register("DeviceName", typeof(string), typeof(TileComponent));
+        public string DeviceName
+        {
+            get { return (string)GetValue(DeviceNameProperty); }
+            set { SetValue(DeviceNameProperty, value); }
+        }
+
+        public static readonly DependencyProperty DeviceTypeProperty = DependencyProperty.Register("DeviceType", typeof(string), typeof(TileComponent));
+        public string DeviceType
+        {
+            get { return (string)GetValue(DeviceTypeProperty); }
+            set { SetValue(DeviceTypeProperty, value); }
+        }
+
         public static readonly DependencyProperty IsCheckedProperty =
            DependencyProperty.Register("IsChecked", typeof(bool), typeof(TileComponent));
         public bool IsChecked

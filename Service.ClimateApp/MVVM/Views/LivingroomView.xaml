@@ -7,59 +7,38 @@
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1080">
 
-    <Border x:Name="kitchen" Style="{StaticResource pageBorder}">
-        <Border CornerRadius="10">
-            <Border.Background>
-                <ImageBrush Stretch="Fill"  Opacity="0.6" ImageSource="/Assets/Images/livingroom.jpg"/>
-            </Border.Background>
+    <Border CornerRadius="12">
+        <Border.Background>
+            <ImageBrush Opacity="0.75" ImageSource="/Assets/Images/livingroom.jpg"/>
+        </Border.Background>
 
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-                <Grid Grid.Row="1" Margin="60 10 60 10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" />
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Text="{Binding Title}"/>
 
-                    <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                        <TextBlock Text="{Binding Title}" Foreground="White" FontSize="36" FontWeight="Bold" />
+            <ItemsControl Grid.Row="1" x:Name="deviceTileListView" ItemsSource="{Binding DeviceItems}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <components:TileComponent 
+                            DeviceName="{Binding DeviceName}"
+                            IconActive="{Binding IconActive}"
+                            IconInActive="{Binding IconInActive}"
+                            StateActive="{Binding StateActive}"
+                            StateInActive="{Binding StateInActive}"
+                            />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
 
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Foreground="White" FontSize="22">
-                                <Run Text="{Binding TemperaturTitle}" FontSize="32"/>
-                                <Run Text="{Binding Temperature}" FontSize="32"/>
-                                <Run Text="{Binding TemperatureScale}" FontSize="20"/>
-                            </TextBlock>
-                            <TextBlock Margin="40 0 0 0" Foreground="White">
-                                <Run Text="{Binding Humidity}" FontSize="32"/>
-                                <Run Text="{Binding HumidityScale}" FontSize="20" />
-                            </TextBlock>
-                        </StackPanel>
-                    </StackPanel>
-
-                    <Grid Grid.Column="1" Margin="40 0 0 0" HorizontalAlignment="Right" VerticalAlignment="Center">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                        </Grid.RowDefinitions>
-
-                        <StackPanel Orientation="Horizontal">
-                            <components:TileComponent Title="Light" IconActive="&#xf672;" IconInActive="&#xf0eb;" Grid.Row="1" Grid.Column="0"  />
-                            <components:TileComponent Title="Fan" IconActive="&#xf863;" IconInActive="&#xf863;" Grid.Row="1" Grid.Column="1"  />
-                            <!--StateActive="On" StateInActive="Off"-->
-                            <!--StateActive="On" StateInActive="Off"  Loaded="TileComponent_Loaded"-->
-                        </StackPanel>
-                    </Grid>
-                </Grid>
-            </Grid>
-        </Border>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </Grid>
     </Border>
 </UserControl>

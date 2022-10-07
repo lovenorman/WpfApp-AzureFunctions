@@ -26,7 +26,6 @@
                     <DataTemplate>
                         <components:TileComponent 
                             DeviceName="{Binding DeviceName}"
-                            DeviceType="{Binding DeviceType}"
                             IconActive="{Binding IconActive}"
                             IconInActive="{Binding IconInActive}"
                             StateActive="{Binding StateActive}"
@@ -43,72 +42,4 @@
             </ItemsControl>
         </Grid>
     </Border>
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <!--<Border x:Name="kitchen" Style="{StaticResource pageBorder}">
-        <Border CornerRadius="10">
-            <Border.Background>
-                <ImageBrush Stretch="Fill"  Opacity="0.6" ImageSource="/Assets/Images/kitchen.jpg"/>
-            </Border.Background>
-
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-
-                <Grid Grid.Row="1" Margin="60 10 60 10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" />
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <StackPanel Grid.Column="0" VerticalAlignment="Center">
-                        <TextBlock Text="{Binding Title}" Foreground="White" FontSize="36" FontWeight="Bold" />
-
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Foreground="White" FontSize="22">
-                                <Run Text="{Binding TemperaturTitle}" FontSize="32"/>
-                                <Run Text="{Binding Temperature}" FontSize="32"/>
-                                <Run Text="{Binding TemperatureScale}" FontSize="20"/>
-                            </TextBlock>
-                            <TextBlock Margin="40 0 0 0" Foreground="White">
-                                <Run Text="{Binding Humidity}" FontSize="32"/>
-                                <Run Text="{Binding HumidityScale}" FontSize="20" />
-                            </TextBlock>
-                        </StackPanel>
-                    </StackPanel>
-
-                    <Grid Grid.Column="1" Margin="40 0 0 0" HorizontalAlignment="Right" VerticalAlignment="Center">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                        </Grid.RowDefinitions>
-
-                        <StackPanel Orientation="Horizontal">
-                            <components:TileComponent Title="Light" IconActive="&#xf672;" IconInActive="&#xf0eb;" Grid.Row="1" Grid.Column="0"  />
-                            <components:TileComponent Title="Fan" IconActive="&#xf863;" IconInActive="&#xf863;" Grid.Row="1" Grid.Column="1"  />
-                            --><!--StateActive="On" StateInActive="Off"-->
-                            <!--StateActive="On" StateInActive="Off"  Loaded="TileComponent_Loaded"--><!--
-                        </StackPanel>
-                    </Grid>
-                </Grid>
-            </Grid>
-        </Border>
-    </Border>-->
 </UserControl>

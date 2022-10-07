@@ -57,7 +57,7 @@ namespace Service.ClimateApp.MVVM.ViewModels
 
             foreach (var item in _deviceItems)
             {
-                var device = await registryManager.GetTwinAsync(item.DeviceId);
+                var device = await registryManager.GetDeviceAsync(item.DeviceId);
                 if (device == null)
                     _tempList.Add(item);
             }
@@ -72,7 +72,7 @@ namespace Service.ClimateApp.MVVM.ViewModels
         {
             var result = registryManager.CreateQuery("select * from devices where properties.reported.location = 'kitchen'");
 
-            if(result.HasMoreResults)//Om det finns fler devices
+            if(result.HasMoreResults)//Om det finns 
             {
                 foreach (Twin twin in await result.GetNextAsTwinAsync())//för varje i resultlistan...
                 {
@@ -102,15 +102,15 @@ namespace Service.ClimateApp.MVVM.ViewModels
                             case "light":
                                 device.IconActive = "\uf672";
                                 device.IconInActive = "\uf0eb";
-                                device.StateActive = "ON";
-                                device.StateInActive = "OFF";
+                                device.StateActive = "On";
+                                device.StateInActive = "Off";
                                 break;
 
                             default:
                                 device.IconActive = "\uf2db";
                                 device.IconInActive = "\uf2db";
-                                device.StateActive = "ENABLE";
-                                device.StateInActive = "DISABLE";
+                                device.StateActive = "Enable";
+                                device.StateInActive = "Disable";
                                 break;
                         }
                         _deviceItems.Add(device);
