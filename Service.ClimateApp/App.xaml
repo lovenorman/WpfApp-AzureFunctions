@@ -14,6 +14,19 @@
                 <ResourceDictionary Source="Resources/BordersDictionary.xaml"/>
                 <ResourceDictionary Source="Resources/TileDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModels:KitchenViewModel}">
+                <views:KitchenView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModels:BedroomViewModel}">
+                <views:BedroomView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModels:LivingroomViewModel}">
+                <views:LivingroomView/>
+            </DataTemplate>
+            
         </ResourceDictionary>
     </Application.Resources>
         
