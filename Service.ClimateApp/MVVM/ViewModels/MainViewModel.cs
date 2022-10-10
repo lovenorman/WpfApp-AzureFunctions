@@ -1,6 +1,7 @@
 ﻿using Service.ClimateApp.MVVM.Cores;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,8 @@ namespace Service.ClimateApp.MVVM.ViewModels
             LivingroomViewCommand = new RelayCommand(x => { CurrentView = LivingroomViewModel; });
 
             CurrentView = KitchenViewModelProp;
+            
+            SetClock();
 
         }
 
@@ -41,6 +44,30 @@ namespace Service.ClimateApp.MVVM.ViewModels
                 _currentView = value;
                 OnPropertyChanged();
             }
+        }
+
+        private string? _currentTime;
+        public string CurrentTime
+        {
+            get => _currentTime!;
+            set
+            {
+                _currentTime = value;
+                OnPropertyChanged();
+            }
+        }
+
+        protected override async void second_timer_tick(object? sender, EventArgs e)
+        {
+            SetClock();
+            await PopulateDeviceItemsAsync();
+            base.second_timer_tick(sender, e);
+        }
+
+        private void SetClock()
+        {
+            CurrentTime = DateTime.Now.ToString("HH:mm");
+            CurrentDate = DateTime.Now.ToString("dd MMMM yyyy");
         }
     }
     
