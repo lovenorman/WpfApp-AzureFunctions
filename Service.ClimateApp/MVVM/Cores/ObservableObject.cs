@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Service.ClimateApp.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Service.ClimateApp.MVVM.Cores
 {
-    internal class ObservableObject : Timers, INotifyPropertyChanged
+    internal class ObservableObject : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 

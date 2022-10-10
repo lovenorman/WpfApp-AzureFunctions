@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Service.ClimateApp.MVVM.Views" 
              xmlns:components="clr-namespace:Service.ClimateApp.Components" 
+             xmlns:viewmodels="clr-namespace:Service.ClimateApp.MVVM.ViewModels" 
+             d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1080">
 
@@ -17,11 +19,25 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="0" Text="{Binding Title}"/>
+            <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <TextBlock Text="{Binding CurrentWeatherCondition}" FontFamily="{StaticResource Fontawesome-Solid}" FontSize="46" Margin="0 0 15 0" Foreground="LightGray" />
+                <TextBlock FontSize="22" Foreground="LightGray" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <Run Text="{Binding CurrentTemperature}" FontSize="32" />
+                        <Run Text="°C" />
+                </TextBlock>
+            </StackPanel>
 
-            <ItemsControl Grid.Row="1" x:Name="deviceTileListView" ItemsSource="{Binding DeviceItems}">
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Title}"/>
+
+            <ItemsControl Grid.Row="1" Grid.Column="1" x:Name="deviceTileListView" ItemsSource="{Binding DeviceItems}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <components:TileComponent 

@@ -24,5 +24,7 @@ namespace Service.ClimateApp.MVVM.Views
         {
             InitializeComponent();
         }
+
+
     }
 }

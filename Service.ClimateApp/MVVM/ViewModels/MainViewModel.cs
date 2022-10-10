@@ -23,7 +23,6 @@ namespace Service.ClimateApp.MVVM.ViewModels
 
             CurrentView = KitchenViewModelProp;
             
-            SetClock();
 
         }
 
@@ -46,29 +45,6 @@ namespace Service.ClimateApp.MVVM.ViewModels
             }
         }
 
-        private string? _currentTime;
-        public string CurrentTime
-        {
-            get => _currentTime!;
-            set
-            {
-                _currentTime = value;
-                OnPropertyChanged();
-            }
-        }
-
-        protected override async void second_timer_tick(object? sender, EventArgs e)
-        {
-            SetClock();
-            await PopulateDeviceItemsAsync();
-            base.second_timer_tick(sender, e);
-        }
-
-        private void SetClock()
-        {
-            CurrentTime = DateTime.Now.ToString("HH:mm");
-            CurrentDate = DateTime.Now.ToString("dd MMMM yyyy");
-        }
     }
     
 }

@@ -2,6 +2,7 @@
 using Microsoft.Azure.Devices.Shared;
 using Microsoft.Win32;
 using Service.ClimateApp.MVVM.Models;
+using Service.ClimateApp.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,12 +13,13 @@ using System.Windows.Threading;
 
 namespace Service.ClimateApp.MVVM.ViewModels
 {
-    internal class KitchenViewModel
+    internal class KitchenViewModel : MainViewModel
     {
         private DispatcherTimer timer;
         private ObservableCollection<DeviceItem> _deviceItems;
         private List<DeviceItem> _tempList;
         private readonly RegistryManager registryManager = RegistryManager.CreateFromConnectionString("HostName=SystemutvecklingIotHub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=tbFZhgNsePCnDBO9HhjsckNF8gPWKvV9nnfFXG/6RO0=");
+        private readonly IWeatherService _weatherService;
 
         public KitchenViewModel()
         {
@@ -47,8 +49,38 @@ namespace Service.ClimateApp.MVVM.ViewModels
 
         private async void timer_tick(object sender, EventArgs e)
         {
+            await SetWeatherAsync();
             await PopulateDeviceItemsAsync();
             await UpdateDeviceItemsAsync();
+        }
+
+        private async Task SetWeatherAsync()
+        {
+            var weather = await _weatherService.GetWeatherDataAsync();
+            CurrentTemperature = weather.Temperature.ToString();
+            CurrentWeatherCondition = weather.WeatherCondition ?? "";
+        }
+
+        private string? _currentWeatherCondition;
+        public string CurrentWeatherCondition
+        {
+            get => _currentWeatherCondition!;
+            set
+            {
+                _currentWeatherCondition = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string? _currentTemperature;
+        public string CurrentTemperature
+        {
+            get => _currentTemperature!;
+            set
+            {
+                _currentTemperature = value;
+                OnPropertyChanged();
+            }
         }
 
         private async Task UpdateDeviceItemsAsync()
