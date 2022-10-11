@@ -1,6 +1,7 @@
 ﻿using Microsoft.Azure.Devices;
 using Microsoft.Azure.Devices.Shared;
 using Microsoft.Win32;
+using Service.ClimateApp.MVVM.Cores;
 using Service.ClimateApp.MVVM.Models;
 using Service.ClimateApp.Services;
 using System;
@@ -13,26 +14,24 @@ using System.Windows.Threading;
 
 namespace Service.ClimateApp.MVVM.ViewModels
 {
-    internal class KitchenViewModel : MainViewModel
+    internal class KitchenViewModel : ObservableObject
     {
         private DispatcherTimer timer;
         private ObservableCollection<DeviceItem> _deviceItems;
         private List<DeviceItem> _tempList;
         private readonly RegistryManager registryManager = RegistryManager.CreateFromConnectionString("HostName=SystemutvecklingIotHub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=tbFZhgNsePCnDBO9HhjsckNF8gPWKvV9nnfFXG/6RO0=");
-        private readonly IWeatherService _weatherService;
+        
 
         public KitchenViewModel()
         {
             _tempList = new List<DeviceItem>();
             _deviceItems = new ObservableCollection<DeviceItem>();
+            
             PopulateDeviceItemsAsync().ConfigureAwait(false);
             SetInterval(TimeSpan.FromSeconds(3));
         }
 
-
         public string Title { get; set; } = "Kitchen";
-        public string Temperature { get; set; } = "23 °C";
-        public string Humidity { get; set; } = "33 %";
         public IEnumerable<DeviceItem> DeviceItems => _deviceItems;
 
 
@@ -49,39 +48,11 @@ namespace Service.ClimateApp.MVVM.ViewModels
 
         private async void timer_tick(object sender, EventArgs e)
         {
-            await SetWeatherAsync();
             await PopulateDeviceItemsAsync();
             await UpdateDeviceItemsAsync();
         }
 
-        private async Task SetWeatherAsync()
-        {
-            var weather = await _weatherService.GetWeatherDataAsync();
-            CurrentTemperature = weather.Temperature.ToString();
-            CurrentWeatherCondition = weather.WeatherCondition ?? "";
-        }
-
-        private string? _currentWeatherCondition;
-        public string CurrentWeatherCondition
-        {
-            get => _currentWeatherCondition!;
-            set
-            {
-                _currentWeatherCondition = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private string? _currentTemperature;
-        public string CurrentTemperature
-        {
-            get => _currentTemperature!;
-            set
-            {
-                _currentTemperature = value;
-                OnPropertyChanged();
-            }
-        }
+        
 
         private async Task UpdateDeviceItemsAsync()
         {

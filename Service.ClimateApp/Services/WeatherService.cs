@@ -11,7 +11,7 @@ namespace Service.ClimateApp.Services
 {
     internal interface IWeatherService
     {
-        public Task<WeatherResponse> GetWeatherDataAsync(string uri = "https://api.openweathermap.org/data/2.5/weather?lat=59.1881139&lon=18.1140349&appid=746d2b2d71322bde500d8c165bf0e8d6");
+        public Task<WeatherResponse> GetWeatherDataAsync(string uri = "https://api.openweathermap.org/data/2.5/weather?lat=59.1881139&lon=18.1140349&appid=6d13e29f2cb2164808a6ae4c8a61d5fb");
 
     }
     
