@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Service.ClimateApp.MVVM.ViewModels;
+using Service.ClimateApp.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,13 @@ namespace Service.ClimateApp.Components
     /// </summary>
     public partial class WeatherComponent : UserControl
     {
+        private readonly IWeatherService _weatherService;
+        
         public WeatherComponent()
         {
             InitializeComponent();
+            _weatherService = new WeatherService();
+            this.DataContext = new WeatherComponentViewModel(_weatherService);
         }
     }
 }

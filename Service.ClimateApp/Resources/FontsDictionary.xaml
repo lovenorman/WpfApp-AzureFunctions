@@ -3,4 +3,9 @@
     
     <FontFamily x:Key="Fontawesome-Regular">/Assets/Fonts/fa-regular-400.ttf#Font Awesome 6 Pro Regular</FontFamily>
     <FontFamily x:Key="Fontawesome-Solid">/Assets/Fonts/fa-solid-900.ttf#Font Awesome 6 Pro Solid</FontFamily>
+
+    <Style x:Key="roomTitle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource Fontawesome-Regular}"/>
+        <Setter Property="FontSize" Value="50"/>
+    </Style>
 </ResourceDictionary>

@@ -12,7 +12,7 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0" Margin="0 0 0 20">
@@ -25,10 +25,10 @@
                 <CheckBox x:Name="toggle" Grid.Column="1" Style="{StaticResource tilePanelToggleButton}"  HorizontalAlignment="Right" VerticalAlignment="Center" />
             </Grid>
 
-            <StackPanel Grid.Row="1">
+            <StackPanel Grid.Row="1" >
                 <TextBlock Style="{StaticResource tileIcon}"  />
                 <TextBlock Style="{StaticResource tilePanelDeviceName}" />
-                <TextBlock Style="{StaticResource tilePanelDeviceType}" />
+                <TextBlock Padding="5 5 5 5" Style="{StaticResource tilePanelDeviceType}" />
             </StackPanel>
         </Grid>
     </Border>

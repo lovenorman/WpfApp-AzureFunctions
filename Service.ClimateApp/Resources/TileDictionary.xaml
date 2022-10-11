@@ -19,15 +19,12 @@
         <Setter Property="Margin" Value="0 0 50 0" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
-        <!--<Setter Property="Text" Value="{Binding ElementName=tile,Path=StateInActive}" />-->
         <Style.Triggers>
             <DataTrigger Binding="{Binding ElementName=toggle,Path=IsChecked}" Value="True">
                 <Setter Property="Text" Value="On"/>
-                <!--<Setter Property="Text" Value="{Binding ElementName=tile,Path=StateActive}" />-->
             </DataTrigger>
             <DataTrigger Binding="{Binding ElementName=toggle,Path=IsChecked}" Value="False">
                 <Setter Property="Text" Value="Off"/>
-                <!--<Setter Property="Text" Value="{Binding ElementName=tile,Path=StateInActive}" />-->
             </DataTrigger>
         </Style.Triggers>
     </Style>
