@@ -12,13 +12,14 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0" Margin="0 0 0 20">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="2*" />
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Grid.Column="0" Style="{StaticResource tilePanelState}"  />
@@ -29,6 +30,10 @@
                 <TextBlock Style="{StaticResource tileIcon}"  />
                 <TextBlock Style="{StaticResource tilePanelDeviceName}" />
                 <TextBlock Padding="5 5 5 5" Style="{StaticResource tilePanelDeviceType}" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button x:Name="btnDelete" Padding="5 5 5 5" Click="btnDelete_Click" Content="Delete" Foreground="SlateGray" Background="White"/>
             </StackPanel>
         </Grid>
     </Border>

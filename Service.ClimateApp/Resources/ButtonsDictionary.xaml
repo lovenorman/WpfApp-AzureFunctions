@@ -24,4 +24,15 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <Style x:Key="btnDelete" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>
+                               
