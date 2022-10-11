@@ -1,4 +1,4 @@
-# AssignmentSystemutveckling
+# Assignment in System Development
 WPF with Azure Functions
 
  - Service.ClimateApp is an WPF-App that administrates devices from Azure IotHub. For the moment it gets all devices stored in Azure that is located in the kitchen. You can delete the device in the IotHub from here.
