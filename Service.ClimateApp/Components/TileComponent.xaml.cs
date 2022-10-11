@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Azure.Devices;
+using Service.ClimateApp.MVVM.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +22,8 @@ namespace Service.ClimateApp.Components
     /// </summary>
     public partial class TileComponent : UserControl
     {
+        private readonly RegistryManager _registryManager = RegistryManager.CreateFromConnectionString("HostName=SystemutvecklingIotHub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=tbFZhgNsePCnDBO9HhjsckNF8gPWKvV9nnfFXG/6RO0=");
+        
         public TileComponent()
         {
             InitializeComponent();
@@ -87,14 +91,11 @@ namespace Service.ClimateApp.Components
             set { SetValue(StateInActiveProperty, value); }
         }
 
-        private void btnRemove_Click(object sender, RoutedEventArgs e)
+        private async void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void btnDelete_Click(object sender, RoutedEventArgs e)
-        {
-
+            var button = sender as Button;
+            var deviceItem = (DeviceItem)button.DataContext;
+            await _registryManager.RemoveDeviceAsync(deviceItem.DeviceId);
         }
     }
 
