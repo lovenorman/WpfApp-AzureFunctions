@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace Service.ClimateApp.MVVM.ViewModels
 {
+    
     internal class WeatherComponentViewModel : ObservableObject
     {
+        private int interval = 60000;
         private string? _currentWeatherCondition;
         private readonly IWeatherService _weatherService;
 
@@ -40,12 +42,17 @@ namespace Service.ClimateApp.MVVM.ViewModels
                 OnPropertyChanged();
             }
         }
-
+        
         private async Task SetWeatherAsync()
         {
-            var weather = await _weatherService.GetWeatherDataAsync();
-            CurrentTemperature = weather.Temperature.ToString();
-            CurrentWeatherCondition = weather.WeatherCondition ?? "";
+            while(true)
+            {
+                var weather = await _weatherService.GetWeatherDataAsync();
+                CurrentTemperature = weather.Temperature.ToString();
+                CurrentWeatherCondition = weather.WeatherCondition ?? "";
+                await Task.Delay(interval);
+            }
+            
         }
     }
 }

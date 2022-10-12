@@ -90,7 +90,9 @@ namespace Service.ClimateApp.MVVM.ViewModels
 
                         try { device.DeviceName = twin.Properties.Reported["deviceName"]; }
                         catch { device.DeviceName = device.DeviceId; }//Om den inte har ett Name sätt Id till Name
-                        try { device.DeviceType = twin.Properties.Reported["deviceType"]; }
+                        try { 
+                            device.DeviceType = twin.Properties.Reported["deviceType"]; 
+                        }
                         catch { }
 
                         switch(device.DeviceType.ToLower())

@@ -26,10 +26,10 @@
                 <CheckBox x:Name="toggle" Grid.Column="1" Style="{StaticResource tilePanelToggleButton}"  HorizontalAlignment="Right" VerticalAlignment="Center" />
             </Grid>
 
-            <StackPanel Grid.Row="1" >
+            <StackPanel Grid.Row="1">
                 <TextBlock Style="{StaticResource tileIcon}"  />
                 <TextBlock Style="{StaticResource tilePanelDeviceName}" />
-                <TextBlock Padding="5 5 5 5" Style="{StaticResource tilePanelDeviceType}" />
+                <TextBlock Text="{Binding DeviceType}" Style="{StaticResource tilePanelDeviceType}" />
             </StackPanel>
 
             <StackPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
