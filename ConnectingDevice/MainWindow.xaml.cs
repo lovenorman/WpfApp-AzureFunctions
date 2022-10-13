@@ -58,24 +58,27 @@ namespace ConnectingDevice
             _deviceId = await conn.QueryFirstOrDefaultAsync<string>("SELECT DeviceId FROM DeviceInfo");
             if (string.IsNullOrEmpty(_deviceId))
             {
-                tbStateMessage.Text = "Generating new DeviceId";//Genererar ett nytt deviceId.
-                _deviceId = Guid.NewGuid().ToString();
+                tbStateMessage.Text = "Generating new DeviceId";
+                _deviceId = Guid.NewGuid().ToString();//Genererar ett nytt deviceId Och skapar en device i lokal DB.
                 await conn.ExecuteAsync("INSERT INTO DeviceInfo(DeviceId,DeviceName,DeviceType,Location,Owner) Values (@DeviceId, @DeviceName, @DeviceType, @Location, @Owner)", new { DeviceId = _deviceId, DeviceName = "WPF Device", DeviceType = "light", Location = "kitchen", Owner = "Love Norman" });//Insert values på första lediga plats i tabellen DeviceInfo
             }
 
+            //Letar efter en connectionString i lokal DB.
             var device_ConnectionString = await conn.QueryFirstOrDefaultAsync<string>("SELECT ConnectionString FROM DeviceInfo WHERE DeviceId = @DeviceId", new {DeviceId = _deviceId});
             
+            //Om det inte finns någon connectionsstring i lokalDB...
             if (string.IsNullOrEmpty(device_ConnectionString))
             {
                 tbStateMessage.Text = "Intializing connectionstring.Please wait...";
 
                 using var http = new HttpClient();
 
+                //...så skapas en via Restful API(_connectUrl)
                 try
                 {
                     await Task.Delay(5000);
                     var result = await http.PostAsJsonAsync(_connectUrl, new { deviceId = _deviceId });//Behöver jag sätta deviceId här? (deviceId är property i twin)
-                    device_ConnectionString = await result.Content.ReadAsStringAsync();
+                    device_ConnectionString = await result.Content.ReadAsStringAsync();//Det som skickas tillbaka görs om till en sträng och blir connectionstring.
                     await conn.ExecuteAsync("UPDATE DeviceInfo SET ConnectionString = @ConnectionString WHERE DeviceId = @DeviceId", new { DeviceId = _deviceId, ConnectionString = device_ConnectionString });
                 }
                 catch (Exception ex)
@@ -99,7 +102,7 @@ namespace ConnectingDevice
             twinCollection["owner"] = _deviceInfo.Owner;
             twinCollection["lightState"] = _lightState;
 
-            await _deviceClient.UpdateReportedPropertiesAsync(twinCollection);//Uppdaterar twinnen 
+            await _deviceClient.UpdateReportedPropertiesAsync(twinCollection);//Om det går att uppdatera twinnen betyder det att den finns och då är den connected. 
 
             _connected = true;//så att vi kommer in i rätt if sats nedan
             tbStateMessage.Text = "Device connected";
