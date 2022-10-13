@@ -75,13 +75,13 @@ namespace Service.ClimateApp.MVVM.ViewModels
         {
             var result = registryManager.CreateQuery("select * from devices where properties.reported.location = 'kitchen'");
 
-            if(result.HasMoreResults)//Om det finns 
+            if(result.HasMoreResults)//Om det finns något i result...
             {
-                foreach (Twin twin in await result.GetNextAsTwinAsync())//för varje i resultlistan...
+                foreach (Twin twin in await result.GetNextAsTwinAsync())//...för varje twin i resultlistan...
                 {
                     var device = _deviceItems.FirstOrDefault(x => x.DeviceId == twin.DeviceId);//Ta den första där DeviceId == twinnens deviceId
 
-                    if(device == null)//Om device är null
+                    if(device == null)//Om det inte finns någon device som har samma Id som device twinnen
                     {
                         device = new DeviceItem//Skapa en ny device
                         {

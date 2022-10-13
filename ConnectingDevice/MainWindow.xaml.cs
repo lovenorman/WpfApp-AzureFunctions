@@ -54,12 +54,12 @@ namespace ConnectingDevice
         {
             tbStateMessage.Text = "Initializing device.Please wait...";
 
-            using IDbConnection conn = new SqlConnection(_connectionString);//Ändra till att söka i CosmosDB?
+            using IDbConnection conn = new SqlConnection(_connectionString);
             _deviceId = await conn.QueryFirstOrDefaultAsync<string>("SELECT DeviceId FROM DeviceInfo");
             if (string.IsNullOrEmpty(_deviceId))
             {
                 tbStateMessage.Text = "Generating new DeviceId";
-                _deviceId = Guid.NewGuid().ToString();//Genererar ett nytt deviceId Och skapar en device i lokal DB.
+                _deviceId = Guid.NewGuid().ToString();//Genererar ett nytt deviceId. Sätter sedan data i varje kolumn i lokal DB.
                 await conn.ExecuteAsync("INSERT INTO DeviceInfo(DeviceId,DeviceName,DeviceType,Location,Owner) Values (@DeviceId, @DeviceName, @DeviceType, @Location, @Owner)", new { DeviceId = _deviceId, DeviceName = "WPF Device", DeviceType = "light", Location = "kitchen", Owner = "Love Norman" });//Insert values på första lediga plats i tabellen DeviceInfo
             }
 
@@ -77,7 +77,7 @@ namespace ConnectingDevice
                 try
                 {
                     await Task.Delay(5000);
-                    var result = await http.PostAsJsonAsync(_connectUrl, new { deviceId = _deviceId });//Behöver jag sätta deviceId här? (deviceId är property i twin)
+                    var result = await http.PostAsJsonAsync(_connectUrl, new { deviceId = _deviceId });//
                     device_ConnectionString = await result.Content.ReadAsStringAsync();//Det som skickas tillbaka görs om till en sträng och blir connectionstring.
                     await conn.ExecuteAsync("UPDATE DeviceInfo SET ConnectionString = @ConnectionString WHERE DeviceId = @DeviceId", new { DeviceId = _deviceId, ConnectionString = device_ConnectionString });
                 }
