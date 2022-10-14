@@ -60,7 +60,7 @@ namespace ConnectingDevice
             {
                 tbStateMessage.Text = "Generating new DeviceId";
                 _deviceId = Guid.NewGuid().ToString();//Genererar ett nytt deviceId. Sätter sedan data i varje kolumn i lokal DB.
-                await conn.ExecuteAsync("INSERT INTO DeviceInfo(DeviceId,DeviceName,DeviceType,Location,Owner) Values (@DeviceId, @DeviceName, @DeviceType, @Location, @Owner)", new { DeviceId = _deviceId, DeviceName = "WPF Device", DeviceType = "light", Location = "kitchen", Owner = "Love Norman" });//Insert values på första lediga plats i tabellen DeviceInfo
+                await conn.ExecuteAsync("INSERT INTO DeviceInfo(DeviceId,DeviceName,DeviceType,Location,Owner) Values (@DeviceId, @DeviceName, @DeviceType, @Location, @Owner)", new { DeviceId = _deviceId, DeviceName = "WPF Device1", DeviceType = "light", Location = "kitchen", Owner = "Love Norman" });//Insert values på första lediga plats i tabellen DeviceInfo
             }
 
             //Letar efter en connectionString i lokal DB.

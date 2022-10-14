@@ -10,6 +10,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,7 +28,7 @@ namespace Device.Fan.Kitchen
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    
     public partial class MainWindow : Window
     {                                          //https://sysytemutvecklingfunctionapp.azurewebsites.net
         private readonly string _connectUrl = "http://localhost:7225/api/devices/connect";
@@ -59,7 +60,7 @@ namespace Device.Fan.Kitchen
             {
                 tbStateMessage.Text = "Generating new DeviceId";
                 _deviceId = Guid.NewGuid().ToString();//Genererar ett nytt deviceId. Sätter sedan data i varje kolumn i lokal DB.
-                await conn.ExecuteAsync("INSERT INTO DeviceInfo(DeviceId,DeviceName,DeviceType,Location,Owner) Values (@DeviceId, @DeviceName, @DeviceType, @Location, @Owner)", new { DeviceId = _deviceId, DeviceName = "WPF Device", DeviceType = "light", Location = "kitchen", Owner = "Love Norman" });//Insert values på första lediga plats i tabellen DeviceInfo
+                await conn.ExecuteAsync("INSERT INTO DeviceInfo(DeviceId,DeviceName,DeviceType,Location,Owner) Values (@DeviceId, @DeviceName, @DeviceType, @Location, @Owner)", new { DeviceId = _deviceId, DeviceName = "WPF Device2", DeviceType = "fan", Location = "kitchen", Owner = "Love Norman" });//Insert values på första lediga plats i tabellen DeviceInfo
             }
 
             //Letar efter en connectionString i lokal DB.
