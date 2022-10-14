@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Device.Fan.Kitchen.Models;
+using Microsoft.Azure.Devices.Client;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -25,7 +27,7 @@ namespace Device.Fan.Kitchen
     public partial class MainWindow : Window
     {                                          //https://sysytemutvecklingfunctionapp.azurewebsites.net
         private readonly string _connectUrl = "http://localhost:7225/api/devices/connect";
-        private readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\love_\\source\\repos\\Inlämningsuppgift\\ConnectingDevice\\Data\\device_DB.mdf;Integrated Security=True;Connect Timeout=30";
+        private readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\love_\\source\\repos\\Inlämningsuppgift\\Device.Fan.Kitchen\\Data\\Device.Fan.Kitchen_DB.mdf;Integrated Security=True;Connect Timeout=30";
 
         private DeviceClient _deviceClient;
         private DeviceInfo _deviceInfo;
