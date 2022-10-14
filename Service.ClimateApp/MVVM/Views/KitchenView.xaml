@@ -38,6 +38,7 @@
                             IconInActive="{Binding IconInActive}"
                             StateActive="{Binding StateActive}"
                             StateInActive="{Binding StateInActive}"
+                            DeviceState="{Binding DeviceState}"
                             />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>

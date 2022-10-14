@@ -14,5 +14,7 @@ namespace ConnectingDevice.Models
         public string DeviceType { get; set; }
         public string Location { get; set; }
         public string Owner { get; set; }
+
+        public bool DeviceState { get; set; } = false;  
     }
 }

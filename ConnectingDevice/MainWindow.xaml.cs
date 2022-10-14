@@ -35,7 +35,8 @@ namespace ConnectingDevice
         private readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\love_\\source\\repos\\Inlämningsuppgift\\ConnectingDevice\\Data\\device_DB.mdf;Integrated Security=True;Connect Timeout=30";
 
         private DeviceClient _deviceClient;
-        private DeviceInfo _deviceInfo;
+        private DeviceInfo _deviceInfo = new DeviceInfo();
+        private bool deviceState = false;
 
         private string _deviceId = "";
         private bool _lightState = false;
@@ -48,6 +49,11 @@ namespace ConnectingDevice
             InitializeComponent();
             SetupAsync().ConfigureAwait(false);
             SendMessageAsync().ConfigureAwait(false);
+        }
+
+        public async Task InitializeDeviceAsync()
+        {
+
         }
 
         public async Task SetupAsync()
@@ -104,6 +110,8 @@ namespace ConnectingDevice
 
             await _deviceClient.UpdateReportedPropertiesAsync(twinCollection);//Om det går att uppdatera twinnen betyder det att den finns och då är den connected. 
 
+            await SetDirectMethodAsync();
+
             _connected = true;//så att vi kommer in i rätt if sats nedan
             tbStateMessage.Text = "Device connected";
         }
@@ -136,6 +144,44 @@ namespace ConnectingDevice
                     }
                 }
                 await Task.Delay(_interval);
+            }
+        }
+
+        
+        private async Task SetDirectMethodAsync()
+        {
+            await Task.Delay(3000);
+            await _deviceClient.SetMethodHandlerAsync("OnOff", OnOff, null);
+        }
+
+        private Task<MethodResponse> OnOff(MethodRequest methodrequest, object userContent)
+        {
+            try
+            {
+                try
+                {
+                    var data = JsonConvert.DeserializeObject<dynamic>(methodrequest.DataAsJson);
+
+                    var update = new TwinCollection();
+                    
+                    _deviceInfo.DeviceState = data!.deviceState;
+
+                    update["deviceState"] = _deviceInfo.DeviceState;
+
+                    _deviceClient.UpdateReportedPropertiesAsync(update).ConfigureAwait(false);
+                }
+                catch (Exception ex)
+                {
+
+                    return Task.FromResult(new MethodResponse(new byte[0], 400));
+                }
+
+                return Task.FromResult(new MethodResponse(new byte[0], 200));
+            }
+            catch (Exception ex)
+            {
+
+                return Task.FromResult(new MethodResponse(new byte[0], 400));
             }
         }
 

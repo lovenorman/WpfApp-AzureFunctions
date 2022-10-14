@@ -52,8 +52,6 @@ namespace Service.ClimateApp.MVVM.ViewModels
             await UpdateDeviceItemsAsync();
         }
 
-        
-
         private async Task UpdateDeviceItemsAsync()
         {
             _tempList.Clear();
@@ -90,10 +88,10 @@ namespace Service.ClimateApp.MVVM.ViewModels
 
                         try { device.DeviceName = twin.Properties.Reported["deviceName"]; }
                         catch { device.DeviceName = device.DeviceId; }//Om den inte har ett Name sätt Id till Name
-                        try { 
-                            device.DeviceType = twin.Properties.Reported["deviceType"]; 
-                        }
+                        try { device.DeviceType = twin.Properties.Reported["deviceType"]; }
                         catch { }
+                        try { device.DeviceState = twin.Properties.Reported["deviceState"];}
+                        catch{ }
 
                         switch(device.DeviceType.ToLower())
                         {

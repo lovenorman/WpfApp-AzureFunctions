@@ -1,4 +1,6 @@
 ﻿using Microsoft.Azure.Devices;
+using Newtonsoft.Json;
+using Service.ClimateApp.MVVM.Cores;
 using Service.ClimateApp.MVVM.Models;
 using System;
 using System.Collections.Generic;
@@ -91,21 +93,38 @@ namespace Service.ClimateApp.Components
             set { SetValue(StateInActiveProperty, value); }
         }
 
+        public static readonly DependencyProperty DeviceStateProperty =
+            DependencyProperty.Register("DeviceState", typeof(bool), typeof(TileComponent));
+        public bool DeviceState
+        {
+            get { return (bool)GetValue(DeviceStateProperty); }
+            set { SetValue(StateInActiveProperty, value); }
+        }
+
         private async void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
             var deviceItem = (DeviceItem)button.DataContext;
             await _registryManager.RemoveDeviceAsync(deviceItem.DeviceId);
         }
+       
 
-        private void btnDelete_Click_1(object sender, RoutedEventArgs e)
+        private async void btnOnOff_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                var button = sender as Button;
+                var deviceItem = (DeviceItem)button!.DataContext;
+                deviceItem.DeviceState = !deviceItem.DeviceState;
+                IsChecked = deviceItem.DeviceState;
 
-        }
+                using ServiceClient serviceClient = ServiceClient.CreateFromConnectionString("HostName=kyh-shared-iothub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=/5asl5agNK3raYZNyfkumb0vcsnT+OdUeoUOupOWLQo=");
 
-        private void btnOnOff_Click(object sender, RoutedEventArgs e)
-        {
-
+                var directMethod = new CloudToDeviceMethod("OnOff");
+                directMethod.SetPayloadJson(JsonConvert.SerializeObject(new { deviceState = IsChecked }));
+                var result = await serviceClient.InvokeDeviceMethodAsync(deviceItem.DeviceId, directMethod);
+            }
+            catch { }
         }
     }
 
