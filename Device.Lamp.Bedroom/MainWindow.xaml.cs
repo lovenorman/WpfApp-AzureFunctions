@@ -31,7 +31,7 @@ namespace Device.Light.Bedroom
     public partial class MainWindow : Window
     {                                          //https://sysytemutvecklingfunctionapp.azurewebsites.net
         private readonly string _connectUrl = "http://localhost:7225/api/devices/connect";
-        private readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\love_\\source\\repos\\Inlämningsuppgift\\Device.Fan.Kitchen\\Data\\Device.Fan.Kitchen_DB.mdf;Integrated Security=True;Connect Timeout=30";
+        private readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\love_\\source\\repos\\Inlämningsuppgift\\Device.Lamp.Bedroom\\Data\\Device.Light.Bedroom.mdf;Integrated Security=True;Connect Timeout=30";
 
         private DeviceClient _deviceClient;
         private DeviceInfo _deviceInfo;
@@ -69,6 +69,8 @@ namespace Device.Light.Bedroom
             if (string.IsNullOrEmpty(device_ConnectionString))
             {
                 tbStateMessage.Text = "Intializing connectionstring.Please wait...";
+
+                await Task.Delay(2000);
 
                 using var http = new HttpClient();
 

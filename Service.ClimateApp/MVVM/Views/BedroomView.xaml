@@ -15,12 +15,20 @@
         <Grid Margin="20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="0" Text="{Binding Title}"/>
+            <components:WeatherComponent Padding="20 20 20 20" Grid.Row="0" Grid.Column="0"/>
 
-            <ItemsControl Grid.Row="1" x:Name="deviceTileListView" ItemsSource="{Binding DeviceItems}">
+            <TextBlock Padding="20 20 20 20" Grid.Row="1" Grid.Column="0" Foreground="#ffffff" FontSize="50" FontWeight="Bold" Text="{Binding Title}"/>
+
+            <ItemsControl Padding="0 50 0 0"  Grid.Row="1" Grid.Column="1" x:Name="deviceTileListView" ItemsSource="{Binding DeviceItems}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <components:TileComponent 
