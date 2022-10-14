@@ -14,6 +14,7 @@
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0" Margin="0 0 0 20">
@@ -34,6 +35,10 @@
 
             <StackPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Button x:Name="btnDelete" Padding="5 5 5 5" Click="btnDelete_Click" Content="Delete" Foreground="SlateGray" Background="White"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button x:Name="btnOnOff" Margin="5" Padding="5 5 5 5" Click="btnOnOff_Click" Content="On/Off" Foreground="SlateGray" Background="White"/>
             </StackPanel>
         </Grid>
     </Border>

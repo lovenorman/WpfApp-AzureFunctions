@@ -97,6 +97,16 @@ namespace Service.ClimateApp.Components
             var deviceItem = (DeviceItem)button.DataContext;
             await _registryManager.RemoveDeviceAsync(deviceItem.DeviceId);
         }
+
+        private void btnDelete_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnOnOff_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
 }
