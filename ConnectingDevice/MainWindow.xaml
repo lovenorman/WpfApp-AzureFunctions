@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ConnectingDevice"
         mc:Ignorable="d"
-        WindowStartupLocation="CenterScreen"
         Title="Connecting Light" Height="150" Width="250">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">

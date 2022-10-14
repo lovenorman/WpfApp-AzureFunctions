@@ -1,5 +1,9 @@
-﻿using Device.Fan.Kitchen.Models;
+﻿using Dapper;
+using Device.Fan.Kitchen.Models;
 using Microsoft.Azure.Devices.Client;
+using Microsoft.Azure.Devices.Shared;
+using Microsoft.Data.SqlClient;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
